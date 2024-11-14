@@ -1,8 +1,9 @@
-import {Router} from 'express';
+import {Router} from "express";
 
 //import * as mainController from "./controllers/main.controller.js";
-import { mainController } from "./controllers/main.controller.js";
-import { productsController} from "./controllers/products.controller.js";
+import * as mainController from "./controllers/main.controller.js";
+import * as  productsController from "./controllers/products.controller.js";
+
 
 // Création du routeur
 export const router = Router();
@@ -11,7 +12,7 @@ export const router = Router();
 router.get("/", mainController.renderHomePage);
 
 // -- Page catalogue / --
-router.get('/catalogue',productsController.renderCatalogPage);
+router.get('/catalogue', productsController.renderCatalogPage);
 
 // -- Page produit / --
 router.get('/product/:id',productsController.renderCoffeeDetailsPage);

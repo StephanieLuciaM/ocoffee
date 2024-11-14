@@ -87,6 +87,7 @@ article{
     width: 40%;
     height: 40%;
     margin-left: 4rem;
+    border-radius: 10px;
 }
 
 .beginning-title{
@@ -131,7 +132,8 @@ p{
 }
 
 footer {
-    background-color: var(--coffee-brown);
+   
+    background: linear-gradient(to center, var(--light-cream), var(--coffee-brown)); 
     padding: 2rem;
     text-align: center;
 }
@@ -211,6 +213,7 @@ footer {
     height: 16rem;
     opacity: 0.7;
     border-radius: 10px;
+    filter:drop-shadow(.5rem .5rem 1rem var(--dark-brown));
 }
 
 .coffee-catalogue-title {
@@ -237,11 +240,14 @@ footer {
     background-color: var(--dark-brown);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    filter:drop-shadow(.5rem .5rem 1rem var(--dark-brown));
+
 }
 
 .article-title{
     color: var(--accent-color);
     font-weight: bold;
+    text-align: center;
 }
 
 .article-img {
@@ -545,5 +551,15 @@ footer {
     }
     .error-main{
         margin-bottom: -2rem;
+    }
+    .product-sheet-date{
+        text-align: right;
+    
+    }
+    
+    .product-title{
+        text-align: left;
+        margin-top: 2rem;
+    
     }
 }

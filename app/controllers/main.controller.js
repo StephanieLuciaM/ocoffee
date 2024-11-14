@@ -1,7 +1,3 @@
-
-export const mainController = {
-
-  renderHomePage: (req, res) => {
-    res.render("home-view");
-  }
-};
+export async function renderHomePage(req, res) {
+  res.render("home-view");
+}

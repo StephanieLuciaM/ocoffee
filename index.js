@@ -6,6 +6,7 @@ import express from "express";
 
 // Import des modules locaux
 import { router } from "./app/router.js";
+import * as coffeeDataMapper from "./app/data-mapper.js";
 
 
 // Créer une app
@@ -18,6 +19,17 @@ app.set("views", "./app/views"); // Choix du dossier contenant les vues ("./view
 // Configurer un dossier statique
 app.use(express.static("./public"));
 
+//middleware
+app.use(async (req, res, next) => {
+  try {
+    const lastThreeCoffees = await coffeeDataMapper.getLastThreeCoffee();
+    res.locals.lastThreeCoffees = lastThreeCoffees;
+    next();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des derniers cafés :", error);
+    next(error);
+  }
+});
 
 // Configurer l'application
 app.use(router);

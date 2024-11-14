@@ -1,24 +1,14 @@
 <footer>
     <h2 class="footer-title">Nouveautés</h2>
     <div class="footer-container">
-        <section class="section-decouverte">
-            <h1> Nicaraguan Maragogipe</h1>  
-            <img class="img-decouverte" src="/images/Nicaraguan Maragogipe.png" alt="Nicaraguan Maragogipe"> 
-            <p class="caracteristique-decouverte">Fruité</p>
-            <a class="article-decouverte-link" href="/product/:id">Découvrir</a>
-        </section>
-        <section class="section-decouverte">
-            <h1> Hawaiian Kona</h1>  
-            <img class="img-decouverte" src="/images/Hawaiian Kona.png" alt="Hawaiian Kona"> 
-            <p class="caracteristique-decouverte">Doux</p>
-            <a class="article-decouverte-link" href="/product/:id">Découvrir</a>
-        </section>
-        <section class="section-decouverte">
-            <h1> Peruvian Arabica</h1>  
-            <img class="img-decouverte" src="/images/Peruvian Arabica.png" alt="Peruvian Arabica"> 
-            <p class="caracteristique-decouverte">Chocolaté</p>
-            <a class="article-decouverte-link" href="/product/:id">Découvrir</a>
-        </section>
+        <% lastThreeCoffees.forEach(coffee => { %>
+            <section class="section-decouverte">
+                <h1><%= coffee.name %></h1>
+                <img class="img-decouverte" src="/images/<%= coffee.name %>.png" alt="<%= coffee.name %>">
+                <p class="caracteristique-decouverte"><%= coffee.category %></p>
+                <a class="article-decouverte-link" href="/product/<%= coffee.id %>">Découvrir</a>
+            </section>
+        <% }) %>
     </div>
 </footer>
 </body>

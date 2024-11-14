@@ -6,65 +6,17 @@
         </div>
         
         <div class="container-articles-catalogue">
-            <a href="/product/:id" class="article-link">
-                <article class="coffee-catalogue">
-                    <h1 class="article-title">Espresso</h1>
-                    <img class="article-img" src="./images/Espresso.png" alt="espresso image">
-                    <p class="article-caracteristique">Corsé</p>
-                    <p class="article-origine">Origine : Italie</p>
-                    <p class="article-prix">20.99 € le kg</p>
-                </article>
-            </a>
-            
-            <a href="/product/:id" class="article-link">
-                <article class="coffee-catalogue">
-                    <h1 class="article-title">Espresso</h1>
-                    <img class="article-img" src="./images/Espresso.png" alt="espresso image">
-                    <p class="article-caracteristique">Corsé</p>
-                    <p class="article-origine">Origine : Italie</p>
-                    <p class="article-prix">20.99 € le kg</p>
-                </article>
-            </a>
-            
-            <a href="/product/:id" class="article-link">
-                <article class="coffee-catalogue">
-                    <h1 class="article-title">Espresso</h1>
-                    <img class="article-img" src="./images/Espresso.png" alt="espresso image">
-                    <p class="article-caracteristique">Corsé</p>
-                    <p class="article-origine">Origine : Italie</p>
-                    <p class="article-prix">20.99 € le kg</p>
-                </article>
-            </a>
-            
-            <a href="/product/:id" class="article-link">
-                <article class="coffee-catalogue">
-                    <h1 class="article-title">Espresso</h1>
-                    <img class="article-img" src="./images/Espresso.png" alt="espresso image">
-                    <p class="article-caracteristique">Corsé</p>
-                    <p class="article-origine">Origine : Italie</p>
-                    <p class="article-prix">20.99 € le kg</p>
-                </article>
-            </a>
-            
-            <a href="/product/:id" class="article-link">
-                <article class="coffee-catalogue">
-                    <h1 class="article-title">Espresso</h1>
-                    <img class="article-img" src="./images/Espresso.png" alt="espresso image">
-                    <p class="article-caracteristique">Corsé</p>
-                    <p class="article-origine">Origine : Italie</p>
-                    <p class="article-prix">20.99 € le kg</p>
-                </article>
-            </a>
-            
-            <a href="/product/:id" class="article-link">
-                <article class="coffee-catalogue">
-                    <h1 class="article-title">Espresso</h1>
-                    <img class="article-img" src="./images/Espresso.png" alt="espresso image">
-                    <p class="article-caracteristique">Corsé</p>
-                    <p class="article-origine">Origine : Italie</p>
-                    <p class="article-prix">20.99 € le kg</p>
-                </article>
-            </a> 
+            <% coffees.forEach(coffee => { %>
+                <a href="/product/<%= coffee.id %>" class="article-link">
+                    <article class="coffee-catalogue">
+                        <h1 class="article-title"><%= coffee.name %></h1>
+                        <img class="article-img" src="./images/<%= coffee.name %>.png" alt="<%= coffee.name %> image">
+                        <p class="article-caracteristique"><%= coffee.category %></p>
+                        <p class="article-origine">Origine : <%= coffee.origin %></p>
+                        <p class="article-prix"><%= coffee["price-per-kg"] %> € le kg</p>
+                    </article>
+                </a>
+            <% }) %>
         </div>
     </main>
     
