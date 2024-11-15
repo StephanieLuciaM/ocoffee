@@ -48,13 +48,14 @@ nav {
         font-family: "Great Vibes",cursive;
         font-size: 4rem;
         color: var(--accent-color);
-        margin-left: 1rem;
+        margin-left: -20rem;
 }
 
 /* Liens de navigation */
 ul {
     display: flex;
     gap: 1.5rem;
+    
 }
 
 ul li {
@@ -440,8 +441,148 @@ footer {
     border-color: var(--accent-color);
 }
 
+.main-container-contact{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 150vh; 
+    background: linear-gradient(to bottom, var(--light-cream), var(--coffee-brown)); /* Applique un fond dégradé */
+    padding: 0;
+}
+/* Formulaire de contact */
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    margin:2rem;
+    padding: 2rem;
+    background-color: var(--dark-brown);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formulaire label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color:var(--light-cream);
+}
+
+.formulaire input, .formulaire textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--coffee-brown);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.formulaire input[type="submit"] {
+    background-color: var(--accent-color);
+    color: var(--coffee-brown);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulaire input[type="submit"]:hover {
+    background-color: var(--color-brown);
+}
+
+/* Carte Plan */
+.plan {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#map {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+.map-localisation-title {
+    font-family: "Great Vibes",cursive;
+    font-size: 2rem;
+    text-align: center;
+    color:var(--coffee-brow);
+    margin-bottom: 1rem;
+}
+
+/* formulaire d'admin */
+.admin-formulaire-main{
+    height: 70vh; 
+}
+.admin-formulaire-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: var(--light-cream);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.admin-formulaire-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.5rem;
+    color: var(--coffee-brown);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.admin-formulaire-main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.admin-formulaire-main input[type="file"] {
+    padding: 0.5rem;
+    border: 2px solid var(--coffee-brown);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--coffee-brown);
+    background-color: var(--light-cream);
+    cursor: pointer;
+}
+
+.admin-formulaire-main button {
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--light-cream);
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-formulaire-main button:hover {
+    background-color: var(--color-brown);
+    border-color: var(--color-brown);
+}
+
 
 @media (max-width: 700px) {
+    .title-header{
+        margin-left: -5rem;
+    }
     nav {
         position: relative;
     }
@@ -562,4 +703,11 @@ footer {
         margin-top: 2rem;
     
     }
+    .main-container-contact{   
+        height: 250vh;    
+    }
+    .admin-formulaire-container {
+        width: 500px;
+        height: 300px;
+    }  
 }

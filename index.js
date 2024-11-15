@@ -19,6 +19,18 @@ app.set("views", "./app/views"); // Choix du dossier contenant les vues ("./view
 // Configurer un dossier statique
 app.use(express.static("./public"));
 
+// Middleware pour les données globales (dernier café)
+app.use(async (req, res, next) => {
+  try {
+    const lastThreeCoffees = await coffeeDataMapper.getLastThreeCoffee();
+    res.locals.lastThreeCoffees = lastThreeCoffees;
+    next();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des derniers cafés :", error);
+    next(error);
+  }
+});
+
 //middleware
 app.use(async (req, res, next) => {
   try {
