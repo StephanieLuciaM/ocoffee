@@ -1,15 +1,19 @@
 <footer>
     <h2 class="footer-title">Nouveautés</h2>
     <div class="footer-container">
-        <% lastThreeCoffees.forEach(coffee => { %>
-            <section class="section-decouverte">
-                <h1><%= coffee.name %></h1>
-                <img class="img-decouverte" src="/images/<%= coffee.name %>.png" alt="<%= coffee.name %>">
-                <p class="caracteristique-decouverte"><%= coffee.category %></p>
-                <a class="article-decouverte-link" href="/product/<%= coffee.id %>">Découvrir</a>
-            </section>
-        <% }) %>
+      <% if (lastThreeCoffees && lastThreeCoffees.length > 0) { %>
+        <% for (const coffee of lastThreeCoffees) { %>
+          <section class="section-decouverte">
+            <h1><%= coffee.name %></h1>
+            <img class="img-decouverte" src="/images/<%= coffee.name %>.png" alt="<%= coffee.name %>">
+            <p class="caracteristique-decouverte"><%= coffee.category ? coffee.category.name : 'Catégorie non définie' %></p>
+            <a class="article-decouverte-link" href="/product/<%= coffee.id %>">Découvrir</a>
+          </section>
+        <% } %>
+      <% } else { %>
+        <p>Aucun café récemment ajouté.</p>
+      <% } %>
     </div>
-</footer>
-</body>
-</html>
+  </footer>
+  
+  

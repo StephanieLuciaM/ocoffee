@@ -1,25 +1,31 @@
 import {Router} from "express";
-import {upload} from "../app/multer-config.js"; // Import du middleware Multer
+import {upload} from "./multer-config.js"; // Import du middleware Multer
+import { mainController } from "./controllers/main.controller.js";
+import { productsController } from "./controllers/products.controller.js";
+import { getLastThreeCoffees } from "./middleware/lasthreecoffeeMiddleware.js";
+import { adminController } from "./controllers/admin.controller.js";
 
-//import * as mainController from "./controllers/main.controller.js";
-import * as mainController from "./controllers/main.controller.js";
-import * as  productsController from "./controllers/products.controller.js";
-import * as adminController from "./controllers/admin.controller.js";
+
 
 // Création du routeur
 export const router = Router();
 
 // -- Route / --
-router.get("/", mainController.renderHomePage);
+router.get("/",getLastThreeCoffees, mainController.renderHomePage);
 
 // -- Page catalogue / --
-router.get('/catalogue', productsController.renderCatalogPage);
+router.get('/catalogue',getLastThreeCoffees, productsController.renderCatalogPage);
 
 // -- Page produit / --
 router.get('/product/:id',productsController.renderCoffeeDetailsPage);
 
+// Route pour afficher la page avec l'image du café
+router.get('/product/:id/new', adminController.renderNewCoffeePage);
+
+
 // -- Page contact / --
 router.get('/contact', mainController.renderContactPage);
+router.post('/contact', mainController.ContactPage);
 
 // -- Page admin ajout café /--
 router.get("/admin/coffee/add", adminController.renderAddCoffeePage);

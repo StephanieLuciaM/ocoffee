@@ -3,14 +3,20 @@ import "dotenv/config";
 
 // Importer Express
 import express from "express";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Import des modules locaux
 import { router } from "./app/router.js";
-import * as coffeeDataMapper from "./app/data-mapper.js";
 
 
 // Créer une app
 const app = express();
+
+
+// Obtenez le répertoire actuel (équivalent de __dirname)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configurer le view engine
 app.set("view engine", "ejs"); // Choix du view engine ("ejs")
@@ -19,29 +25,15 @@ app.set("views", "./app/views"); // Choix du dossier contenant les vues ("./view
 // Configurer un dossier statique
 app.use(express.static("./public"));
 
-// Middleware pour les données globales (dernier café)
-app.use(async (req, res, next) => {
-  try {
-    const lastThreeCoffees = await coffeeDataMapper.getLastThreeCoffee();
-    res.locals.lastThreeCoffees = lastThreeCoffees;
-    next();
-  } catch (error) {
-    console.error("Erreur lors de la récupération des derniers cafés :", error);
-    next(error);
-  }
-});
 
-//middleware
-app.use(async (req, res, next) => {
-  try {
-    const lastThreeCoffees = await coffeeDataMapper.getLastThreeCoffee();
-    res.locals.lastThreeCoffees = lastThreeCoffees;
-    next();
-  } catch (error) {
-    console.error("Erreur lors de la récupération des derniers cafés :", error);
-    next(error);
-  }
-});
+// Rendre le répertoire 'uploads' accessible au public
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
+
+// configurer le body parser (pour récupérer les données des formulaires)
+app.use(express.urlencoded({ extended: true }));
+
 
 // Configurer l'application
 app.use(router);

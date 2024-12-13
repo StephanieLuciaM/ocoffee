@@ -1,11 +1,42 @@
 <%- include('./partials/header') %>
+
 <main class="admin-formulaire-main">
     <div class="admin-formulaire-container">
         <h1 class="admin-formulaire-title">Ajouter un nouveau café</h1>
         <form action="/admin/coffee/add" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <button type="submit">Télécharger</button>
+            <!-- Champ pour le nom du café -->
+            <div class="form-group">
+                <label for="name">Nom du café</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <!-- Champ pour la référence du café -->
+            <div class="form-group">
+                <label for="reference">Référence du café</label>
+                <input type="text" id="reference" name="reference" required>
+            </div>
+
+            <!-- Champ pour la catégorie du café -->
+<div class="form-group">
+    <label for="category">Catégorie du café</label>
+    <select id="category" name="category" required>
+        <option value="1">Catégorie 1</option>
+        <option value="2">Catégorie 2</option>
+        <option value="3">Catégorie 3</option>
+        <!-- Ajoute ici toutes les catégories disponibles -->
+    </select>
+</div>
+
+
+            <!-- Téléchargement de l'image -->
+            <div class="form-group">
+                <label for="file">Image du café</label>
+                <input type="file" id="file" name="file" accept="image/*" required>
+            </div>
+            
+            <button type="submit">Ajouter le café</button>
         </form>
     </div>
 </main>
+
 <%- include('./partials/footer2') %>
