@@ -5,7 +5,7 @@
         <% for (const coffee of lastThreeCoffees) { %>
           <section class="section-decouverte">
             <h1><%= coffee.name %></h1>
-            <img class="img-decouverte" src="/images/<%= coffee.name %>.png" alt="<%= coffee.name %>">
+            <img class="img-decouverte" src="/images/<%= coffee.image %>" alt="<%= coffee.name %>">
             <p class="caracteristique-decouverte"><%= coffee.category ? coffee.category.name : 'Catégorie non définie' %></p>
             <a class="article-decouverte-link" href="/product/<%= coffee.id %>">Découvrir</a>
           </section>
