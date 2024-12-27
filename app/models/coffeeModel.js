@@ -27,6 +27,9 @@ Coffee.init(
     available: {
       type: DataTypes.BOOLEAN,
     },
+    image: {
+      type: DataTypes.STRING
+    }
   },
   {
     sequelize,

@@ -3,8 +3,6 @@ import "dotenv/config";
 
 // Importer Express
 import express from "express";
-import path from 'path';
-import { fileURLToPath } from 'url';
 
 // Import des modules locaux
 import { router } from "./app/router.js";
@@ -13,11 +11,6 @@ import { router } from "./app/router.js";
 // Créer une app
 const app = express();
 
-
-// Obtenez le répertoire actuel (équivalent de __dirname)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // Configurer le view engine
 app.set("view engine", "ejs"); // Choix du view engine ("ejs")
 app.set("views", "./app/views"); // Choix du dossier contenant les vues ("./views")
@@ -25,11 +18,8 @@ app.set("views", "./app/views"); // Choix du dossier contenant les vues ("./view
 // Configurer un dossier statique
 app.use(express.static("./public"));
 
-
-// Rendre le répertoire 'uploads' accessible au public
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-
+// Créer un endpoint /images pour toutes les images, qu'elles soient dans ./public/images ou dans ./uploads
+app.use('/images', express.static("./public/images/coffees"), express.static("./uploads"));
 
 // configurer le body parser (pour récupérer les données des formulaires)
 app.use(express.urlencoded({ extended: true }));

@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
     <main>
         <div class="coffee-catalogue-div">
-            <img class="coffee-catalogue-img" src="./images/fond-catalogue.png" alt="image fond titre">
+            <img class="coffee-catalogue-img" src="/images/fond-catalogue.png" alt="image fond titre">
             <h2 class="coffee-catalogue-title">Notre catalogue</h2>
         </div>
         
@@ -10,8 +10,8 @@
                 <a href="/product/<%= coffee.id %>" class="article-link">
                     <article class="coffee-catalogue">
                         <h1 class="article-title"><%= coffee.name %></h1>
-                        <img class="article-img" src="./images/<%= coffee.name %>.png" alt="<%= coffee.name %> image">
-                        <p class="article-caracteristique"><%= coffee.category %></p>
+                        <img class="article-img" src="/images/<%= coffee.image %>" alt="<%= coffee.name %> image">
+                        <p class="article-caracteristique"><%= coffee.category.name %></p>
                         <p class="article-origine">Origine : <%= coffee.origin %></p>
                         <p class="article-prix"><%= coffee["price-per-kg"] %> € le kg</p>
                     </article>
@@ -23,3 +23,4 @@
     <a href="/catalogue" class="articles-link">Voir tout</a>
     
     <%- include('./partials/footer') %>
+    
