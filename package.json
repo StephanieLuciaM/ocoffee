@@ -8,7 +8,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "db:create-sql": "psql -U ocoffee -d ocoffee -f data/create_db.sql",
+    "db:reset-sql": "npm run db:create-sql"
   },
   "author": "",
   "license": "ISC",

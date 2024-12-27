@@ -49,7 +49,7 @@ CREATE TABLE "coffee" (
     "description" TEXT,
     "reference" VARCHAR(20) UNIQUE NOT NULL,
     "origin" VARCHAR(100),
-    "price-per-kg" DECIMAL(6,2),
+    "price_per_kg" DECIMAL(6,2),
     "image" TEXT,
     "available" BOOLEAN,
     "category_id" INTEGER NOT NULL REFERENCES "category"("id"),
@@ -58,7 +58,7 @@ CREATE TABLE "coffee" (
 );
 
 -- Insertion des données dans la table "coffee" avec des IDs spécifiés pour les catégories
-INSERT INTO "coffee" ("name", "description", "reference", "image", "origin", "price-per-kg", "available", "category_id") VALUES
+INSERT INTO "coffee" ("name", "description", "reference", "image", "origin", "price_per_kg", "available", "category_id") VALUES
 ('Espresso', 'Café fort et concentré préparé en faisant passer de l''eau chaude à travers du café finement moulu', '100955890', '100955890.png', 'Italie', 20.99, TRUE, 1),
 ('Columbian', 'Café moyennement corsé avec une acidité vive et une saveur riche', '100955894', '100955894.png', 'Colombie', 18.75, TRUE, 2),
 ('Ethiopian Yirgacheffe', 'Réputé pour son arôme floral, son acidité vive et ses notes de saveur citronnée.', '105589090', '105589090.png', 'Éthiopie', 22.50, TRUE, 3),

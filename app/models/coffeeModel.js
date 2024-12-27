@@ -22,7 +22,7 @@ Coffee.init(
     },
     pricePerKg: {
       type: DataTypes.DECIMAL(6, 2),
-      field: 'price-per-kg', 
+      field: 'price_per_kg', 
     },
     available: {
       type: DataTypes.BOOLEAN,

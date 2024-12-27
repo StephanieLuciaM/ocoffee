@@ -1,15 +1,15 @@
 <%- include('./partials/header') %>
 <main>
     <div class="product-container">
-        <img class="product-img" src="/images/<%= coffee.name %>.png" alt="<%= coffee.name %> image">
+        <img class="product-img" src="/images/<%= coffee.reference %>.png" alt="<%= coffee.name %> image">
         <article class="product-sheet">
             <p class="product-sheet-date">Publié le:13/11/2024</p>
             <h1 class="product-title"><%= coffee.name %></h1>
             <p class="product-description"><%= coffee.description %></p>
-            <p class="product-caracteristique"><strong>Caractéristique principale :</strong> <%= coffee.category %></p>
+            <p class="product-caracteristique"><strong>Caractéristique principale :</strong> <%= coffee.category.name %></p>
             <p class="product-reference"><strong>Référence:</strong> <%= coffee.reference %></p>
             <p class="product-origine"><strong>Origine:</strong> <%= coffee.origin %></p>
-            <p class="product-price"><%= coffee["price-per-kg"] %> € <strong>le kg</strong></p>
+            <p class="product-price"><%= coffee.pricePerKg %> € <strong>le kg</strong></p>
             <p class="product-disponible"><strong>Disponible:</strong> <%= coffee.available %></p>
             <a class="catalogue-link" href="/catalogue">Voir le Catalogue</a>
         </article>

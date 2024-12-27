@@ -529,7 +529,7 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 600px;
-    height: 300px;
+    height: 450px;
     margin-left: auto;
     margin-right: auto;
    
@@ -708,6 +708,6 @@ footer {
     }
     .admin-formulaire-container {
         width: 500px;
-        height: 300px;
+        height: 450px;
     }  
 }
