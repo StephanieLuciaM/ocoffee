@@ -25,7 +25,7 @@ User.init(
     },
     firstname: {
       type: DataTypes.STRING,
-      allowNull: true, // Si tu veux que `firstname` soit optionnel, tu peux définir `allowNull: true`
+      allowNull: true, // Pour que`firstname` soit optionnel, c'est `allowNull: true`
     },
     lastname: {
       type: DataTypes.STRING,
